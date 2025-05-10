@@ -6,10 +6,14 @@ const MainContent = () => {
     const [images, setImages] = useState([]);
     const [gameState, setGameState] = useState("initial")
     const [score, setScore] = useState(0);
-    const handleImageClick = (type)=>{
+    const handleImageClick = (type) => {
         console.log(type);
-        if(type === "dog"){
-            setScore(prev=> prev++);
+        if (type === "dog") {
+            setScore((prev) => prev + 1);
+            dogAndCat().then((data) => {
+                console.log(data);
+                setImages(() => data)
+            })
         }
     }
 
@@ -39,11 +43,11 @@ const MainContent = () => {
                     {
                         images.length > 0 && images.map((image) => {
                             return (
-                                <button key={image.url} onClick={()=>{
-                                    console.log(image.type);
+                                <button key={image.url} onClick={() => {
+                                    // console.log(image.type);
                                     handleImageClick(image.type)
                                 }}>
-                                    <img className='blur-md w-[190px] h-[190px]' src={image.url}  />
+                                    <img className='blur-md w-[190px] h-[190px]' src={image.url} />
                                 </button>
                             )
                         })
