@@ -1,11 +1,12 @@
 import React from 'react'
+import Header from './components/Header'
+import MainContent from './components/MainContent'
 
 const App = () => {
   return (
-    <div>
-      <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <div className='bg-[#26362C] h-screen text-[#EFF9F3] font-sans'>
+      <Header />
+      <MainContent/>
     </div>
   )
 }
